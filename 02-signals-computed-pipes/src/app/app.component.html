@@ -1,0 +1,24 @@
+<div>
+  <h1>Signals</h1>
+  <p>nome : {{fisrtName()}}</p>
+  <p>sobrenome : {{lastName()}}</p>
+  <p>nome completo : {{fullName()}}</p>
+
+  <button (click)="updateName()">
+    updateName
+  </button>
+  <button (click)="updateArray()">
+    updateArray
+  </button>
+
+  <p>
+    @for (item of arr(); track $index) {
+    <span>
+      {{item}}
+      @if (item !== arr().length) {
+      ,
+      }
+    </span>
+    }
+  </p>
+</div>

@@ -1,0 +1,29 @@
+<form [formGroup]="form" (submit)="getData()">
+  <input formControlName="id" type="text" name="id" id="id">
+  <button type="submit">
+    request
+  </button>
+</form>
+@if (isLoading) {
+  <div>
+    loading...
+  </div>
+}@else {
+  <div class=" data-content">
+    data:
+    <pre>{{parse(data)}}</pre>
+  </div>
+}
+
+<hr>
+<h1>estruturas de repetição</h1>
+@for (item of arr; track $index) {
+  <p>
+    {{$index + 1}} - {{item}}
+  </p>
+}
+<style>
+  .data-content {
+    padding: 16px 0;
+  }
+</style>
