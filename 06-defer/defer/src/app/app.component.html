@@ -1,0 +1,29 @@
+<!-- style="margin-bottom: 1000px;" -->
+<h1>Deferrable views</h1>
+<!-- DEFER PARAMS -->
+<!-- on indle => padrão do defer, aciona o navegador está inativo -->
+<!-- on timer => permite que você passe o tempo para aguardar antes de carregar -->
+<!-- on viewport => carrega somente quando o componente aparece na viewport -->
+<!-- on interaction => recebe um trigger(referencia de elemento) a ser clicado para iniciar o carregamento do componente. serm argumentos o trigger é o placeholder -->
+<!-- on hover => carrega assim que o evento de hover ocorre no no elemento do placeholder -->
+<!-- on immediate => aciona o carregamento assim que o navegador carregou tudo que havia para carregar-->
+<!-- on prefetch => pre carrega o componente. geralmente vem acompanhado de outro on pois ele apenas carrega os dados e o outro on fica encarregado de renderizar o componente no html -->
+<!-- when => carrega condicional à uma variavel typescript -->
+<!-- minimum => pode ser passado um tempo mínimo para o placeholder ou o loading ficar aparente antes de revelar o componente do defer -->
+<!-- after => delimita um tempo mínimo de carregamento para que o loading apareça -->
+
+<!-- obs: é possível usar varios parâmtros para o defer separados por ";" e cada ";" funciona como um operador OR -->
+
+
+<div>
+  <!-- for defer the argument is optional -->
+  @defer(when loadingData | async){
+  <app-first-component></app-first-component>
+  }@placeholder {
+  <p>aparece antes de carregar o compontente</p>
+  }@loading {
+  <p>loading...</p>
+  }@error {
+  <p>erro ao carregar o componente</p>
+  }
+</div>
