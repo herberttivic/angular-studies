@@ -1,0 +1,15 @@
+<div>
+  <p>data formatada : {{date | date:"dd/mm/YYYY"}}</p>
+  <p>texto cru : {{text}}</p>
+  <p>texto maiusculo : {{ text | uppercase}}</p>
+  <p>texto minusculo : {{ text | lowercase}}</p>
+
+  <!-- 1.0-2 diz que após a virgula o mínimo de casas decimais é 0 e o máximo é 2 -->
+  <p>decimal : {{ 900.313 | number:'1.0-2'}}</p>
+  <p>percent : {{ 0.203 | percent:'1.0-2'}}</p>
+  <p>currency : {{ 900.313 | currency: "BRL"}}</p>
+
+  <small>
+    Obs: Para fazer o replace em "," e "." para o pardrão brasileiro é necessário configurar o component.ts
+  </small>
+</div>
