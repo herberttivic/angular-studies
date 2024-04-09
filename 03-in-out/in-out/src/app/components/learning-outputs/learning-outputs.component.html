@@ -1,0 +1,7 @@
+<label for="message">Message</label>
+<form [formGroup]="form">
+  <input formControlName="message" type="text" name="message" id="message">
+  <button (click)="sendMessage()" type="button">
+    send
+  </button>
+</form>
