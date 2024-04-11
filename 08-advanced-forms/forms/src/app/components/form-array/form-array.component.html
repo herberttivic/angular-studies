@@ -1,0 +1,28 @@
+<h2>#1 - form-array works!</h2>
+<form [formGroup]="form" (submit)="onSubmit($event)">
+  <div class="form-section">
+    <label for="name">Nome</label>
+    <input type="text" formControlName="name" id="name">
+  </div>
+
+  <div class="form-section">
+    <label for="email">Email</label>
+    <input type="text" formControlName="email" id="email">
+  </div>
+
+  <div class="form-section">
+    <label for="newKnowledge">Conhecimentos</label>
+    <div>
+      <input type="text" id="newKnowledge" #newKnowledge>
+      <input type="button" value="Adicionar" (click)="addKnowledge(newKnowledge.value)">
+    </div>
+  </div>
+  <div formArrayName="myKnowledges">
+    @for (item of form.value.myKnowledges ;track $index) {
+      <p>{{$index}} - {{item}}</p>
+    <input type="text" [name]="$index" id="$index" [formControlName]="$index"/>
+    }
+
+  </div>
+  <button type="submit">Enviar</button>
+</form>

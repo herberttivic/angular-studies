@@ -1,0 +1,14 @@
+<hr>
+
+<h2>#3 - custom-validators works!</h2>
+<form [formGroup]="form">
+  <div class="form-section">
+    <input type="text" placeholder="nome" formControlName="firstName">
+    <input type="text" placeholder="sobrenome" formControlName="lastName">
+  </div>
+</form>
+
+<h3>
+  Validação:
+</h3>
+<p>tem pelo menos uma letra maiuscula : <b>{{form.valid}}</b></p>

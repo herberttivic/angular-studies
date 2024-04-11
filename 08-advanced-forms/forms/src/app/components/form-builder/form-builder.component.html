@@ -1,0 +1,17 @@
+<hr>
+
+<h2>#2 - form-builder works!</h2>
+<form [formGroup]="form">
+  <div class="form-section">
+    <input type="text" formControlName="username" required/>
+    <input type="password" formControlName="password" />
+  </div>
+</form>
+
+<div>
+  <h3>Form infos</h3>
+  <p>válido : {{form.valid}}</p>
+  <p>valor : {{form.value | json}}</p>
+  <p>alterado : {{form.dirty}}</p>
+  <p>tocado : {{form.touched}}</p>
+</div>
