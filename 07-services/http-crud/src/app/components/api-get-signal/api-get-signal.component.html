@@ -10,9 +10,14 @@
 <button (click)="createUser({name: inputName.value})">
   submit
 </button>
-{{response().message}}
-<br>@if (response().body) {
-<pre>{{response().body | json}}</pre>
+
+@if (response()) {
+{{response()?.message}}
+<br>
+<pre>{{response()?.body | json}}</pre>
+}
+@if(isLoading()){
+  <p>loading...</p>
 }
 <hr>
 

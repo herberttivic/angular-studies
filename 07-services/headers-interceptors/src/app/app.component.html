@@ -1,0 +1,20 @@
+<div>
+  <h1>Busca pokemon</h1>
+  <input type="text" placeholder="type the pokemon name or id" #pokemon>
+  <button (click)="findPokemon(pokemon.value)">
+    find
+  </button>
+
+  @if (data(); as data) {
+  <div>
+    <p>#{{data.id}} - {{data.name}}</p>
+    <img [src]="data.sprites.front_default" alt="pokemon sprite">
+  </div>
+  }
+  @if (loading()) {
+  <p>caregando...</p>
+  }
+  @if (error()) {
+  <p style=" color: rgb(92, 0, 0);">{{error()}}</p>
+    }
+  </div>

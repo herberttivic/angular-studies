@@ -1,7 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ApiGetSignalService } from '../../services/api-get-signal.service';
 import { JsonPipe } from '@angular/common';
-import { concatMap } from 'rxjs';
 
 @Component({
   selector: 'app-api-get-signal',
@@ -16,16 +15,16 @@ export class ApiGetSignalComponent implements OnInit {
   // pega o get que é readonly e salva como um signal em getData
   public getData = this.apiService.getData$;
   public getUser = this.apiService.getUser$;
-  public response = signal<{ message: string; body: object | null }>({
-    message: '',
-    body: null,
-  });
+  public isLoading = signal<boolean>(false);
+  public response = signal<{ message: string; body: object } | null>(null);
 
   ngOnInit(): void {
     this.apiService.list$().subscribe();
     this.apiService.listUser$().subscribe();
   }
   public createUser(body: { name: string }) {
+    this.isLoading.set(true)
+    this.response.set(null)
     this.apiService
       .createUser$(body)
       // .pipe(concatMap(() => aqui eu retornaria o this.api.list$ para atualizar a lista de usuarios após a criação do novo usuário.
@@ -37,6 +36,9 @@ export class ApiGetSignalComponent implements OnInit {
         error: (error) => {
           this.response.set({ message: 'error', body: error });
         },
+        complete: () =>{
+          this.isLoading.set(false)
+        }
       });
   }
 }
