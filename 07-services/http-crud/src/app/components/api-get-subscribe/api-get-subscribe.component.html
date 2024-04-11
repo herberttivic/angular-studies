@@ -1,0 +1,9 @@
+<p>api-get-subscribe works!</p>
+
+@for (item of data(); track $index) {
+  <pre>
+    {{item | json}}
+  </pre>
+}@empty {
+  <p>loading...</p>
+}

@@ -1,0 +1,26 @@
+<p>api-get-signal works!</p>
+@if (getUser(); as data) {
+<p>
+  {{data.id}} - {{data.name}}
+</p>
+}
+<hr>
+<p>create user request</p>
+<input type="text" name="name" id="name" #inputName>
+<button (click)="createUser({name: inputName.value})">
+  submit
+</button>
+{{response().message}}
+<br>@if (response().body) {
+<pre>{{response().body | json}}</pre>
+}
+<hr>
+
+@for (item of getData(); track $index) {
+<pre style="display: block;">
+    {{item | json}}
+  </pre>
+<br>
+}@empty {
+<p>loading...</p>
+}
