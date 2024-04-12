@@ -1,0 +1,66 @@
+<p>driven-form works!</p>
+<div>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <label>
+      <p>Nome</p>
+      <input type="text" name="name" #name="ngModel" [ngModel]="name.value" required>
+    </label>
+    <label>
+      <p>Email</p>
+      <input type="text" name="email" #email="ngModel" [ngModel]="email.value" email required>
+    </label>
+    <hr>
+    <p>Radio buttons</p>
+    <label>
+      <input name="stack" type="radio" value="backend" #stack="ngModel" [ngModel]="stack.value" required>
+      <span>backend</span>
+    </label>
+    <label>
+      <input name="stack" type="radio" value="frontend" #stack="ngModel" [ngModel]="stack.value" required>
+      <span>frontend</span>
+    </label>
+    <label>
+      <input name="stack" type="radio" value="fullstack" #stack="ngModel" [ngModel]="stack.value" required>
+      <span>fullstack</span>
+    </label>
+
+    <hr>
+    <p>checkbox</p>
+    <label>
+      <input name="angular"  type="checkbox" #angular="ngModel" [ngModel]="angular.value">
+      <span>Angular</span>
+    </label>
+    <label>
+      <input name="react"  type="checkbox" #react="ngModel" [ngModel]="react.value">
+      <span>React</span>
+    </label>
+    <label>
+      <input name="java"  type="checkbox" #java="ngModel" [ngModel]="java.value">
+      <span>Java</span>
+    </label>
+
+    <hr>
+    <p>select / options</p>
+    <select value="" name="cafe" #cafe="ngModel" ngModel >
+      <option value="" disabled>Selecione seu tipo de café favorito</option>
+      <option value="Café comum">Café comum</option>
+      <option value="Café extra forte">Café extra forte</option>
+      <option value="Café descafeinado">Café descafeinado</option>
+      <option value="Café com leite">Café com leite</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+<hr>
+  <p>name valid : {{name.valid}}</p>
+  <p>email valid : {{email.valid}}</p>
+  <p>stack value : {{stack.value}}</p>
+  <p>angular value : {{angular.value}}</p>
+  <p>react value : {{react.value}}</p>
+  <p>java value : {{java.value}}</p>
+  <p>cafe value : {{cafe.value}} </p>
+  <hr>
+  <p>form valid : {{form.valid}}</p>
+  <p>form value : {{form.value | json}}</p>
+
+</div>
