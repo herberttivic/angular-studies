@@ -1,0 +1,26 @@
+<div class="p-10 h-full">
+  <div class="border shadow-sm bg-white flex justify-center items-stretch rounded-xl overflow-hidden">
+    <div class="bg-primary-dark flex-1 p-10 m-3 rounded-xl flex flex-col justify-between items-start">
+      <img class="h-20" src="../../../assets/logotipo_topo_tivic.png" alt="logo tivic" />
+      <div class="text-slate-300 text-sm font-medium">
+        <p>+55 77 3421-9279</p>
+        <p>contato&#64;tivic.com.br</p>
+      </div>
+    </div>
+    <div class="p-10 flex-1 space-y-4">
+      <div>
+        <p class="text-2xl font-semibold text-slate-700">{{getTitle()}}</p>
+        <button (click)="changeForm()" class="text-sm font-medium text-slate-600 py-1.5 cursor-pointer hover:underline">
+          {{getButtonText()}}
+        </button>
+      </div>
+      <div>
+        @if(isLogging){
+        <app-form-login />
+        }@else {
+        <app-form-register />
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<form [formGroup]="form" class="flex flex-col justify-start items-start gap-3">
+  <app-primary-input formControlName="name" class="w-full" id="name" label="Nome" placeholder="digite seu nome" />
+  <app-primary-input formControlName="email" class="w-full"  id="email" label="Email" placeholder="digite seu email" />
+  <app-primary-input formControlName="password" class="w-full" type="password" id="password" label="Senha" placeholder="digite sua senha" />
+  <app-primary-input formControlName="confirmPassword" class="w-full" type="password" id="confirm-password" label="Confirmação de senha"
+    placeholder="digite novamente sua senha" />
+  <p class="text-sm text-red-800 p-1">{{error}}</p>
+  <app-primary-button (submit)="handleSubmit()" text="Registrar" type="submit" />
+</form>

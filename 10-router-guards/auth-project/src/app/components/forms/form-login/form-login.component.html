@@ -1,0 +1,13 @@
+<form
+  [formGroup]="form" class="flex flex-col justify-start items-start gap-3">
+  <app-primary-input class="w-full" formControlName="email" id="email" type="email" label="Email" placeholder="digite seu email" />
+  <app-primary-input class="w-full" formControlName="password" type="password" id="password" label="Senha"
+    placeholder="digite sua senha" />
+    <p class="text-sm text-red-800 p-1">{{error}}</p>
+  <div class="flex justify-between items-end w-full">
+    <app-primary-button (submit)="handleSubmit()"/>
+    <p class="text-end w-full text-sm text-slate-600 font-medium hover:underline cursor-pointer px-1">Esqueci minha
+      senha</p>
+  </div>
+</form>
+
