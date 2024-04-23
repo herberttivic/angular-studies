@@ -1,0 +1,10 @@
+<p>servicos works!</p>
+<form [formGroup]="form">
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name">
+</form>
+<p>
+  form valid : {{form.valid}}
+</p>
+
+<a [routerLink]="[ '/' ]">voltar</a>
